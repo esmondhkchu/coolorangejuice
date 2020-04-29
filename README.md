@@ -17,4 +17,24 @@ From `scraper`
     1. `load_race_source()` -> load a specific day and race
         1. `extract_race_tab()` -> extract race tab
         2. `extract_race_performance()` -> extract race performance
-        3. `extract_race_result()` -> extract race result 
+        3. `extract_race_result()` -> extract race result
+
+## Tree
+```
+.
+├── ETL
+│   ├── extracted_result_4_28.csv
+│   ├── fe_data_process.py
+│   ├── geckodriver.log
+│   ├── load_data.ipynb
+│   ├── load_data.py
+│   ├── scraper.py
+│   └── tools.py
+├── README.md
+├── coding_kernel
+├── model
+│   ├── 4_22_2020_data.csv
+│   └── model_experiments.ipynb
+└── recycle
+    └── my_app.py
+```
