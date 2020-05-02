@@ -99,3 +99,17 @@ def subset_df(in_df, cut_col):
     cut_idx = list(ori[ori != shifted].index) + [my_df.shape[0]]
     cut = [my_df.loc[range(cut_idx[i],cut_idx[i+1])] for i in range(len(cut_idx)-1)]
     return cut
+
+def combine_dicts(in_list):
+    """ combine dictionaries into one
+
+    Parameters: in_list (tuple/list/array-like) - a list of dictionaries
+
+    Returns: (dict) - the combined dictionaries
+    """
+    new_dict = dict()
+    for i in in_list:
+        for j in i:
+            new_dict[j] = i[j]
+
+    return new_dict
