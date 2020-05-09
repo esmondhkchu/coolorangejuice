@@ -26,6 +26,7 @@ From `scraper`
 ├── ETL
 │   ├── fe_data_process.py
 │   ├── geckodriver.log
+│   ├── get_data.ipynb
 │   ├── load_data.ipynb
 │   ├── load_data.py
 │   ├── result
@@ -41,8 +42,13 @@ From `scraper`
 ├── model
 │   ├── 4_22_2020_data.csv
 │   ├── 5_2_2020_data.csv
+│   ├── README.md
+│   ├── geckodriver.log
+│   ├── model_experiment_new.ipynb
 │   ├── model_experiments_4_22_2020.ipynb
-│   └── model_experiments_5_2_2020.ipynb
+│   ├── model_experiments_5_2_2020.ipynb
+│   ├── model_experiments_5_9_2020.ipynb
+│   └── validatetor.py
 └── recycle
     └── my_app.py
 ```
