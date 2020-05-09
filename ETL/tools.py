@@ -113,3 +113,8 @@ def combine_dicts(in_list):
             new_dict[j] = i[j]
 
     return new_dict
+
+def unlist(in_list):
+    """ unlist a list of list
+    """
+    return [j for i in in_list for j in i]
