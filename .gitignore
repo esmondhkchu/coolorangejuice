@@ -4,6 +4,8 @@ __pycache__/
 *$py.class
 
 .DS_Store
+.ipynb_checkpoints
+__pycache__
 
 # C extensions
 *.so
