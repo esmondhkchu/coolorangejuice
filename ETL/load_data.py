@@ -244,6 +244,8 @@ def map_result_to_day_data(in_day_data, in_result, return_type='dataframe'):
             sorted_df['result'] = result
             sorted_df = sorted_df.reset_index(drop=True)
             data_dict[id_] = sorted_df
+        elif i.result.isna().sum() == 0:
+            data_dict[id_] = i
         else:
             continue
     if return_type is 'dataframe':
