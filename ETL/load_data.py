@@ -281,3 +281,81 @@ def map_result_to_data(in_df, in_result, verbose=True):
 
     overall = pd.concat(all_data).reset_index(drop=True)
     return overall
+
+##############- load whole page info from HJC -##############
+def load_hkjc_page_info(info, path, retry=True, verbose=True, return_failed=True):
+    """ extract a list of race day info from HKJC
+
+    Parameters: info (list) - a list of list containing the info of raceday
+                              eg. [year, month, day, race] as a sub list
+                path (str) - the path that files should write to
+                retry (boo) - retry if first time fail or not, optional, default is True
+                return_failed (boo) - return failed extraction page info, optional, default is True
+
+    Returns: (list) - failed extraction data page info, optional, return only if return_failed is True
+    """
+    hkjc = HKJCRaceResult('../../../geckodriver')
+
+    if verbose:
+        print('Page to Extract: {}'.format(len(info)))
+    retry_list = list()
+    for year, month, day, race_name in info:
+
+        try:
+            hkjc.load_race_source(year, month, day, race_name)
+
+            race_tab = hkjc.extract_race_tab()
+            race_performance = hkjc.extract_race_performance()
+            result = hkjc.extract_race_result()
+            print('Loaded page data: {}/{}/{}, Race {}'.format(year, month, day, race_name))
+
+            complete_name = '{}_{}_{}_{}'.format(year, month, day, race_name)
+
+            # race tab write to file , .txt
+            write_to_txt(path, complete_name+'_rt.txt', [i+'\n' for i in race_tab])
+            # race perforamnce write to file, .csv
+            race_performance.to_csv(os.path.join(path, complete_name+'_rp.csv'), index=False)
+            # race result write to file, .csv
+            result.to_csv(os.path.join(path, complete_name+'_result.csv'), index=False)
+            if verbose:
+                print('All data wrote to files')
+                print('')
+
+        except:
+            retry_list.append((year, month, day, race_name))
+            if verbose:
+                print('Failed to Load page info: {}/{}/{}, Race {}, will retry'.format(year, month, day, race_name))
+
+    # retry
+    if retry:
+        failed_report = list()
+        for year, month, day, race_name in retry_list:
+            try:
+                if verbose:
+                    print('Retrying page info: {}/{}/{}, Race {}'.format(year, month, day, race_name))
+                hkjc.load_race_source(year, month, day, race_name)
+
+                race_tab = hkjc.extract_race_tab()
+                race_performance = hkjc.extract_race_performance()
+                result = hkjc.extract_race_result()
+
+                complete_name = '{}_{}_{}_{}'.format(year, month, day, race_name)
+
+                # race tab write to file , .txt
+                write_to_txt(path, complete_name+'_rt.txt', [i+'\n' for i in race_tab])
+                # race perforamnce write to file, .csv
+                race_performance.to_csv(os.path.join(path, complete_name+'_rp.csv'), index=False)
+                # race result write to file, .csv
+                result.to_csv(os.path.join(path, complete_name+'_result.csv'), index=False)
+                if verbose:
+                    print('All data wrote to files')
+                    print('')
+            except:
+                failed_report.append('{}_{}_{}_{}'.format(year, month, day, race_name))
+                if verbose:
+                    print('Failed to load page data: {}/{}/{}, Race {}'.format(year, month, day, race_name))
+
+    if return_failed:
+        return failed_report
+
+    hkjc.close_browser()

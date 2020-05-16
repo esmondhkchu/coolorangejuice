@@ -118,3 +118,12 @@ def unlist(in_list):
     """ unlist a list of list
     """
     return [j for i in in_list for j in i]
+
+def format_date_race(date, race):
+    year, month, day = format_to_date(date)
+    race = format_to_race(race)
+    return [year, month, day, race]
+
+def write_to_txt(path, file_name, content):
+    with open(os.path.join(path, file_name), 'w') as f:
+        f.writelines(content)

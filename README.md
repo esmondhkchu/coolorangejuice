@@ -11,7 +11,8 @@ From `load_data`
 4. get result from HKJC if a dataframe has missing result -> `extract_missing_result()`
 5. A. map HKJC result to data -> `map_result_to_day_data()`
 6. B. map HKJC result to data -> `map_result_to_data()` <br>
-    B. is the overall function, A is supportive, difference is A work from a single excel, B work from either single excel or directory
+    B. is the overall function, A is supportive, difference is A work from a single excel, B work from either single excel or directory <br>
+7. Extract whole page info from HKJC and output to files -> `load_hkjc_page_info()` <br>
 
 From `scraper`
 1. `HKJCRaceResult` class -> initate a browser
@@ -38,7 +39,7 @@ From `scraper`
 │   ├── scraper.py
 │   └── tools.py
 ├── README.md
-├── coding_kernel
+├── coding_kernel.ipynb
 ├── model
 │   ├── 4_22_2020_data.csv
 │   ├── 5_2_2020_data.csv
@@ -48,6 +49,7 @@ From `scraper`
 │   ├── model_experiments_4_22_2020.ipynb
 │   ├── model_experiments_5_2_2020.ipynb
 │   ├── model_experiments_5_9_2020.ipynb
+│   ├── model_rf_5_9_top1.sav
 │   └── validatetor.py
 └── recycle
     └── my_app.py
