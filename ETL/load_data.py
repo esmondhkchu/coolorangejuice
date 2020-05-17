@@ -283,6 +283,10 @@ def map_result_to_data(in_df, in_result, verbose=True):
     return overall
 
 ##############- load whole page info from HJC -##############
+def write_to_txt(path, file_name, content):
+    with open(os.path.join(path, file_name), 'w') as f:
+        f.writelines(content)
+
 def load_hkjc_page_info(info, path, retry=True, verbose=True, return_failed=True):
     """ extract a list of race day info from HKJC
 
@@ -298,6 +302,7 @@ def load_hkjc_page_info(info, path, retry=True, verbose=True, return_failed=True
 
     if verbose:
         print('Page to Extract: {}'.format(len(info)))
+        print('')
     retry_list = list()
     for year, month, day, race_name in info:
 
@@ -325,6 +330,7 @@ def load_hkjc_page_info(info, path, retry=True, verbose=True, return_failed=True
             retry_list.append((year, month, day, race_name))
             if verbose:
                 print('Failed to Load page info: {}/{}/{}, Race {}, will retry'.format(year, month, day, race_name))
+                print('')
 
     # retry
     if retry:
@@ -354,6 +360,9 @@ def load_hkjc_page_info(info, path, retry=True, verbose=True, return_failed=True
                 failed_report.append('{}_{}_{}_{}'.format(year, month, day, race_name))
                 if verbose:
                     print('Failed to load page data: {}/{}/{}, Race {}'.format(year, month, day, race_name))
+                    print('')
+
+    hkjc.close_browser()
 
     if return_failed:
         return failed_report
