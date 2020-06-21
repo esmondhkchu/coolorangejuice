@@ -29,34 +29,35 @@ From `scraper`
 ```
 .
 ├── ETL
-│   ├── fe_data_process.py
-│   ├── geckodriver.log
+│   ├── coding_kernel.ipynb
+│   ├── coolorange
+│   │   ├── __init__.py
+│   │   ├── fe_data_process.py
+│   │   ├── load_data.py
+│   │   ├── result_ver.py
+│   │   ├── scraper.py
+│   │   └── tools.py
 │   ├── get_data.ipynb
 │   ├── load_data.ipynb
-│   ├── load_data.py
-│   ├── result
-│   │   ├── 04_29_2020_06_25_16.txt
-│   │   ├── 05_01_2020_00_13_21.txt
-│   │   ├── 05_01_2020_04_18_34.txt
-│   │   ├── 05_01_2020_22_29_27.txt
-│   │   └── 05_02_2020_00_16_32.txt
-│   ├── scraper.py
-│   └── tools.py
+│   └── result
+│       ├── 04_29_2020_06_25_16.txt
+│       ├── 05_01_2020_00_13_21.txt
+│       ├── 05_01_2020_04_18_34.txt
+│       ├── 05_01_2020_22_29_27.txt
+│       └── 05_02_2020_00_16_32.txt
 ├── README.md
 ├── coding_kernel.ipynb
 ├── model
 │   ├── 4_22_2020_data.csv
 │   ├── 5_2_2020_data.csv
 │   ├── README.md
-│   ├── geckodriver.log
+│   ├── model_data_5_2.csv
 │   ├── model_experiment_new.ipynb
 │   ├── model_experiments_4_22_2020.ipynb
+│   ├── model_experiments_5_16_2020.ipynb
 │   ├── model_experiments_5_2_2020.ipynb
 │   ├── model_experiments_5_9_2020.ipynb
-<<<<<<< HEAD
-│   ├── model_rf_5_9_top1.sav
-=======
->>>>>>> 910c800abce44000ad1704d1558f68fa4eaccb9e
+│   ├── sample.csv
 │   └── validatetor.py
 └── recycle
     └── my_app.py
