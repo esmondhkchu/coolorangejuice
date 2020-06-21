@@ -7,8 +7,11 @@ import pandas as pd
 import datetime
 import json
 
-from tools import *
-from scraper import *
+from coolorange.tools import *
+from coolorange.scraper import *
+
+# from tools import *
+# from scraper import *
 
 def load_excel_sheet(data_path, sheet_name, mapper={'編號':'horse_num'}):
     """ load an excel sheet

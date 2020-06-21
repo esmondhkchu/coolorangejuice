@@ -118,11 +118,8 @@ def unlist(in_list):
     """ unlist a list of list
     """
     return [j for i in in_list for j in i]
-<<<<<<< HEAD
 
 def format_date_race(date, race):
     year, month, day = format_to_date(date)
     race = format_to_race(race)
     return [year, month, day, race]
-=======
->>>>>>> 910c800abce44000ad1704d1558f68fa4eaccb9e
