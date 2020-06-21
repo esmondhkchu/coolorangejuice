@@ -11,12 +11,9 @@ From `load_data`
 4. get result from HKJC if a dataframe has missing result -> `extract_missing_result()`
 5. A. map HKJC result to data -> `map_result_to_day_data()`
 6. B. map HKJC result to data -> `map_result_to_data()` <br>
-<<<<<<< HEAD
     B. is the overall function, A is supportive, difference is A work from a single excel, B work from either single excel or directory <br>
 7. Extract whole page info from HKJC and output to files -> `load_hkjc_page_info()` <br>
-=======
     B. is the overall function, A is supportive, difference is A work from a single excel, B work from either single excel or directory
->>>>>>> 910c800abce44000ad1704d1558f68fa4eaccb9e
 
 From `scraper`
 1. `HKJCRaceResult` class -> initate a browser
