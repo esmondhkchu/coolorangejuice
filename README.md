@@ -1,6 +1,7 @@
-# CoolOrangeJuice
+# CoolOrangeJuice (something I did for my dad)
 www.coolorangejuice.com <br>
-"Orange Juice for health"
+
+This is nothing more than a data pipeline and a simple prediction of probability p(y_i|X) and wrapped the whole process with a very simple UI <br>
 
 ## Data Pipeline & Backend
 Excel File must follow same format. <br>
